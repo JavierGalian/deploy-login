@@ -1,5 +1,10 @@
 import axios from 'axios';
 
-export const getUsers = () => {
-    return axios.get('https://apipersonas.onrender.com/api/data/');
-}
+const api = axios.create({
+    baseURL: 'https://apipersonas.onrender.com/api/data/'
+})
+
+export const getUsers = () => api.get('/')
+
+
+export const createUser = (data) => api.post('/', data)
